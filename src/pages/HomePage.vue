@@ -1,18 +1,27 @@
 <template>
   <div class="container">
-    <section class="row">
+    <div class="section row">
       <div class="col-12">
         <h1>Beautiful Art</h1>
       </div>
+    </div>
+    <section class="row">
+
+      {{ artworks }}
+
+      <div v-for="art in artworks" :key="art.id" class="col-md-4">
+        <img src="" alt="">
+      </div>
+
     </section>
   </div>
 </template>
 
 <script>
-import { onMounted } from 'vue';
-import { artService } from '../services/ArtService';
-import Pop from '../utils/Pop';
-
+import { computed, onMounted } from 'vue';
+import { artService } from '../services/ArtService.js';
+import Pop from '../utils/Pop.js';
+import { AppState } from '../AppState.js';
 
 
 
@@ -33,29 +42,10 @@ export default {
 
     return {
 
+      artworks: computed(() => AppState.artworks)
     }
   }
 }
 </script>
 
-<style scoped lang="scss">
-.home {
-  display: grid;
-  height: 80vh;
-  place-content: center;
-  text-align: center;
-  user-select: none;
-
-  .home-card {
-    width: clamp(500px, 50vw, 100%);
-
-    >img {
-      height: 200px;
-      max-width: 200px;
-      width: 100%;
-      object-fit: contain;
-      object-position: center;
-    }
-  }
-}
-</style>
+<style scoped lang="scss"></style>
