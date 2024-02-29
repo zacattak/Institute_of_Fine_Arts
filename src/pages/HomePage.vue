@@ -9,8 +9,10 @@
 
       {{ artworks }}
 
-      <div v-for="art in artworks" :key="art.id" class="col-md-4">
-        <img src="" alt="">
+      <div>
+
+        <!-- <ArtworkCard v-for="art in artworks" :key="art.id" :artwork="art" /> -->
+
       </div>
 
     </section>
@@ -28,6 +30,8 @@ import { AppState } from '../AppState.js';
 
 export default {
   setup() {
+
+
     async function getArt() {
       try {
         await artService.getArt()

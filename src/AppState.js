@@ -8,8 +8,11 @@ export const AppState = reactive({
 
   artworks: [],
 
-  activeArtworks: null,
+  // activeArtworks: null,
 
+  // currentPage: 0,
+
+  // totalPages: 
 
 
 
