@@ -4,13 +4,13 @@ import { logger } from "../utils/Logger.js"
 import { api } from "./AxiosService.js"
 
 
-class ArtService {
-    async getArt() {
+class ArtworkService {
+    async getArtwork() {
         const response = await api.get('/api/artworks')
         logger.log('got art', response.data)
-        const newArtworks = response.data.results.map(artworkPOJO => new Artwork(artworkPOJO))
+        const newArtworks = response.data.artworks.map(artworkPOJO => new Artwork(artworkPOJO))
         AppState.artworks = newArtworks
     }
 }
 
-export const artService = new ArtService()
+export const artworkService = new ArtworkService()

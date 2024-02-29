@@ -7,7 +7,9 @@
     </div>
     <section class="row">
 
-      {{ artworks }}
+      <div v-for="artwork in artworks" :key="artwork.id" class="col-md-4">
+        Test
+      </div>
 
       <div>
 
@@ -21,7 +23,7 @@
 
 <script>
 import { computed, onMounted } from 'vue';
-import { artService } from '../services/ArtService.js';
+import { artworkService } from '../services/ArtworkService.js';
 import Pop from '../utils/Pop.js';
 import { AppState } from '../AppState.js';
 
@@ -32,16 +34,16 @@ export default {
   setup() {
 
 
-    async function getArt() {
+    async function getArtwork() {
       try {
-        await artService.getArt()
+        await artworkService.getArtwork()
       } catch (error) {
         Pop.error(error)
       }
     }
 
     onMounted(() => {
-      getArt()
+      getArtwork()
     })
 
     return {
