@@ -9,7 +9,10 @@
 
       <div v-for="artwork in artworks" :key="artwork.id" class="col-md-4">
         Test
+        <img :src="artwork.imgUrls" :alt="artwork.slug" :title="artwork.description" class="img-fluid rounded">
       </div>
+
+
 
       <div>
 
